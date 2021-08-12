@@ -9,8 +9,7 @@ class TestSolution(unittest.TestCase):
         self.assertAlmostEqual(solution([2, 0]),2)
         self.assertAlmostEqual(solution([0,-1, -10]),10)
         self.assertAlmostEqual(solution([0,-1, 0, -10, 2, 5]),100)
-        self.assertAlmostEqual(solution([0]),0)
-        self.assertAlmostEqual(solution([0]),0)
+        self.assertAlmostEqual(solution([0, 10, -10, 1]),10)
         
 
 if __name__ == '__main__':
