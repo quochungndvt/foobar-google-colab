@@ -1,15 +1,13 @@
 def solution(xs):
-    #code here
-    if len(xs) <=2 and 0 in xs:
-        return max(xs)
-    #print "xs", xs
+    if len(xs) == 1:
+        return str(xs[0])
+    l = [i for i in xs if i != 0]
+    if len(l) == 0:
+        return str(0)
     r = 1
-    largest_negative = float("-inf")
-    for i in xs:
-        r = max(r, r*i, key=abs)
-        #print "r", r
-        if i<= -1:
-            largest_negative = max(i, largest_negative)
-            #print "largest_negative", largest_negative
-    #print "max", max(r, r // largest_negative)
-    return max(r, r // largest_negative)
+    for i in l:
+        r *= i
+    if r < 0:
+        l.remove(max([i for i in l if i < 0]))
+        r = solution(l)
+    return str(r)
